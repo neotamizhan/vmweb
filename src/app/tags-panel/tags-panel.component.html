@@ -1,5 +1,8 @@
-<div class="tags-panel" ng-show="tags">
-  <div class="col-sm-6 col-md-4" *ngFor="let tag of tags">
-    <div class="tag">{{tag}}</div>
-  </div>
- </div>
+<div class="col-md-3">
+  <h3><span class="label label-primary">குறிச்சொற்கள்</span></h3>
+  <p><i class="glyphicon glyphicon-search"></i> : <input ng-model="query"/></p>
+  <a href="#/tag/{{tag.tag}}" class="btn btn-xs btn-primary" *ngFor="let tag of (tags | filteredTags(query))">
+      <i class="icon-tag icon-white"></i>
+      {{tag[0]}} {{tag[1]}}
+  </a>
+</div>

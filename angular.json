@@ -32,9 +32,7 @@
               "src/mystyles.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/linq/linq.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

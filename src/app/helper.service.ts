@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Episode } from './episode';
-import * as Enumerable from 'linq';
-import { strictEqual } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,7 @@ export class HelperService {
    /* Init Helpers */
    getAllTags(db: Episode[]): string[]{
     console.log(db);
-    let tags = [];
+    const tags = [];
     db.map(e => e.tags).forEach(e => e.forEach(t => tags.push (t)));
     console.log(tags);
     return tags;
