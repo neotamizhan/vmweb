@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/bootstrap.css",
+              "src/mystyles.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/linq/linq.js"
+            ]
           },
           "configurations": {
             "production": {
