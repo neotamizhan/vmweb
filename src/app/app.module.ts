@@ -8,6 +8,7 @@ import { EpisodesComponent } from './episodes/episodes.component';
 import { LatestEpisodeComponent } from './latest-episode/latest-episode.component';
 import { TagsPanelComponent } from './tags-panel/tags-panel.component';
 import { FilteredTagsPipe } from './filtered-tags-pipe';
+import { EpisodesByTagComponent } from './episodes-by-tag/episodes-by-tag.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilteredTagsPipe } from './filtered-tags-pipe';
     EpisodesComponent,
     LatestEpisodeComponent,
     TagsPanelComponent,
-    FilteredTagsPipe
+    FilteredTagsPipe,
+    EpisodesByTagComponent
   ],
   imports: [
     BrowserModule,

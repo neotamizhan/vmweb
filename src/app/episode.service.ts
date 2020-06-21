@@ -32,4 +32,8 @@ export class EpisodeService {
     return this.helperService.getTagCount(this.episodes);
   }
 
+  getEpisodesByTag(tag: string): Episode[] {
+    return this.helperService.getEpisodesByTag(this.episodes, tag);
+  }
+
 }

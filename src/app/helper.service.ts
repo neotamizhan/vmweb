@@ -28,6 +28,13 @@ export class HelperService {
     arrayTags.sort((a, b) => b[1] - a[1]);
     return arrayTags;
   }
+
+  getEpisodesByTag(db: Episode[], tag: string): Episode[] {
+    console.log('in getEpisodesByTag looking for tag ' + tag);
+    return db.filter((v: Episode, i: number) => v.tags.includes(tag))
+              .sort((a, b) => b.novelno - a.novelno)
+              .sort((a, b) => b.chapter - a.chapter);
+  }
 /*
   getNovels(db) {
       return Enumerable.from(db)
@@ -65,13 +72,6 @@ export class HelperService {
               .toArray();
   }
 
-  getEpisodesByTag(db, tag) {
-    console.log('in getEpisodesByTag looking for tag ' + tag);
-    return Enumerable.from(db)
-                     .where ((x: Episode) => Enumerable.From(x.tags).Contains(tag))
-                     .orderByDescending('$.novelno')
-                     .thenByDescending('$.chapter')
-                     .toArray();
-  }
+
   */
 }
