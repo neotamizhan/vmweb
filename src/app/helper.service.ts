@@ -35,6 +35,39 @@ export class HelperService {
               .sort((a, b) => b.novelno - a.novelno)
               .sort((a, b) => b.chapter - a.chapter);
   }
+
+  getNovels(db: Episode[]) {
+    const novels = [];
+
+    db.forEach(e=> novels.push({id: e.novelno, name: e.novelname}));
+    return novels;
+  }
+
+  getSections(db: Episode[], novel: {id: number, novelname: string}) {
+    const sections = [];
+
+    db.filter(e=> e.novelno == novel.id)
+      .forEach(n=> sections.push({novelno: n.novelno, id: n.sectionno, name: n.sectionname}));
+
+    return sections;
+  }
+
+  getNovelsWithSections(db: Episode[]) {
+      const novelsWithSections = [];
+      
+      this.getNovels(db).forEach(n=> {
+          const novelWithSections = {novel : {id: 0, name: ''}, sections: []};
+          novelWithSections.novel = n
+          novelWithSections.sections = this.getSections(db,n);
+          novelsWithSections.push (novelWithSections);
+        }
+      ); 
+      
+      return novelsWithSections;
+    };      
+  }    
+
+
 /*
   getNovels(db) {
       return Enumerable.from(db)

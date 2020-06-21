@@ -36,4 +36,7 @@ export class EpisodeService {
     return this.helperService.getEpisodesByTag(this.episodes, tag);
   }
 
+  getNovelsWithSections(){
+    return this.helperService.getNovelsWithSections(this.episodes);
+  }
 }
