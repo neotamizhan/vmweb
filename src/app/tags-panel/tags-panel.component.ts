@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EpisodeService } from '../episode.service';
 import { FilteredTagsPipe } from '../filtered-tags-pipe';
+
 @Component({
   selector: 'app-tags-panel',
   templateUrl: './tags-panel.component.html',
@@ -9,6 +10,7 @@ import { FilteredTagsPipe } from '../filtered-tags-pipe';
 export class TagsPanelComponent implements OnInit {
 
   tags: {};
+  tagSearch = '';
 
   constructor(private episodeService: EpisodeService) { }
 
