@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import {Episode} from './episode';
 import * as data from '../../data.json';
 import { HelperService } from './helper.service';
@@ -9,34 +10,41 @@ import { HelperService } from './helper.service';
 export class EpisodeService {
 
   episodes: Episode[];
+  db: Episode[];
 
   constructor(private helperService: HelperService) {
-    this.episodes = (data as any).default;
+    this.db = (data as any).default;
   }
 
-  getAllEpisodes(): Episode[] {
-    return this.episodes;
+  getAllEpisodes(): Observable<Episode[]> {
+    return of(this.episodes);
   }
 
-  getLatestEpisode(): Episode[] {
-    let e = [];
-    e.push(this.episodes[this.episodes.length - 1]);
-    return e;
+  getLatestEpisode(): Observable<Episode[]> {
+    const e = [];
+    e.push(this.db[this.db.length - 1]);
+    return of(e);
+  }
+
+  getEpisodesByTag(tag: string): Observable<Episode[]> {
+    return of(this.helperService.getEpisodesByTag(this.db, tag));
+  }
+
+  getEpisodesByNovelAndSection(novelno: number, sectionno: number) {
+    return of(this.helperService.getEpisodesByNovelAndSection(this.db, novelno, sectionno));
+  }
+
+  getNovelsWithSections() {
+    return this.helperService.getNovelsWithSections(this.db);
   }
 
   getAllTags(): any[] {
-    return this.helperService.getAllTags(this.episodes);
+    return this.helperService.getAllTags(this.db);
   }
 
   getTagCount() {
-    return this.helperService.getTagCount(this.episodes);
+    return this.helperService.getTagCount(this.db);
   }
 
-  getEpisodesByTag(tag: string): Episode[] {
-    return this.helperService.getEpisodesByTag(this.episodes, tag);
-  }
 
-  getNovelsWithSections(){
-    return this.helperService.getNovelsWithSections(this.episodes);
-  }
 }

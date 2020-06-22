@@ -10,6 +10,7 @@ import { TagsPanelComponent } from './tags-panel/tags-panel.component';
 import { NovelsBarComponent } from './novels-bar/novels-bar.component';
 import { FilteredTagsPipe } from './filtered-tags-pipe';
 import { EpisodesByTagComponent } from './episodes-by-tag/episodes-by-tag.component';
+import { EpisodesBySectionComponent } from './episodes-by-section/episodes-by-section.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EpisodesByTagComponent } from './episodes-by-tag/episodes-by-tag.compon
     TagsPanelComponent,
     NovelsBarComponent,
     FilteredTagsPipe,
-    EpisodesByTagComponent
+    EpisodesByTagComponent,
+    EpisodesBySectionComponent
   ],
   imports: [
     BrowserModule,

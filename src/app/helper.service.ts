@@ -51,28 +51,33 @@ export class HelperService {
     const sections = [];
 
     const novels = db.filter(n=> n.novelno == novel.id);
-    
+
     novels.forEach(novel=> {
-      const section = {novelno: novel.novelno, id: novel.sectionno, sectionname: novel.sectionname};  
-      if (!sections.find(s=> s.sectionname === section.sectionname)) {sections.push(section);}      
-    });      
+      const section = {novelno: novel.novelno, id: novel.sectionno, sectionname: novel.sectionname};
+      if (!sections.find(s=> s.sectionname === section.sectionname)) {sections.push(section);}
+    });
     return sections;
   }
 
   getNovelsWithSections(db: Episode[]) {
       const novelsWithSections = [];
-      
+
       this.getNovels(db).forEach(n=> {
           const novelWithSections = {novel : {id: 0, name: ''}, sections: []};
           novelWithSections.novel = n
           novelWithSections.sections = this.getSections(db,n);
           novelsWithSections.push (novelWithSections);
         }
-      ); 
-      
+      );
+
       return novelsWithSections;
-    };      
-  }    
+  }
+
+  getEpisodesByNovelAndSection(db: Episode[], novelno: number, sectionno: number) {
+    return db.filter(n => n.novelno === novelno && n.sectionno === sectionno);
+  }
+
+}
 
 
 /*

@@ -12,10 +12,10 @@ export class NovelsBarComponent implements OnInit {
   novelsWithSections = [];
 
   constructor(private episodeService: EpisodeService) { }
-  
+
   ngOnInit() {
     this.novelsWithSections = this.episodeService.getNovelsWithSections();
-    console.log(this.novelsWithSections)
+    console.log(this.novelsWithSections);
   }
 
 }

@@ -1,4 +1,11 @@
-<div class="container1" ng-cloak>
-    <app-novels-bar></app-novels-bar>
-    <app-tags-panel></app-tags-panel>
-</div>
+  <app-novels-bar></app-novels-bar>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-4">
+        <app-tags-panel></app-tags-panel>
+      </div>
+    </div>
+  </div>

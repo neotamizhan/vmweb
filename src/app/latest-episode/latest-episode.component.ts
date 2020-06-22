@@ -15,11 +15,11 @@ export class LatestEpisodeComponent implements OnInit {
   constructor(private episodeService: EpisodeService) {}
 
   getEpisodes(): void {
-    this.episodes = this.episodeService.getLatestEpisode();
+    this.episodeService.getLatestEpisode()
+    .subscribe(episode => this.episodes = episode);
   }
 
   ngOnInit() {
     this.getEpisodes();
   }
-
 }

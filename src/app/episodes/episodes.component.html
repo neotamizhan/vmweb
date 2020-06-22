@@ -1,16 +1,13 @@
 <div class="alert alert-primary" ng-show="message">
   {{message}}
 </div>
-
-<div class="episodes" ng-show="episodes">
- <div class="col-sm-6 col-md-4" *ngFor="let episode of episodes">
-    <div class="thumbnail">
-      <a href="#/novel/{{episode.novelno}}/chapter/{{episode.chapter}}"><img src="{{episode.image}}" alt="..."></a>
-      <div class="caption">
-        <p>{{episode.novelname}} - {{episode.chapter}}</p>
-        <p>{{episode.sectionname}}</p>
-        <p><a href="{{episode.url}}" target="_blank" class="btn btn-primary" role="button">கதை</a> <a href="{{episode.image}}" target="_blank" class="btn btn-default" role="button">படம்</a></p>
-      </div>
+<div class="episodes d-sm-flex flex-wrap" ng-show="episodes">
+ <div class="col-sm-6 col-md-4 card" *ngFor="let episode of episodes">
+    <a href="#/novel/{{episode.novelno}}/chapter/{{episode.chapter}}"><img class="card-img-top" src="{{episode.image}}" alt="..."></a>
+    <div class="card-body">
+      <p class="card-title">{{episode.novelname}} - {{episode.chapter}}</p>
+      <p class="card-text">{{episode.sectionname}}</p>
+      <p><a href="{{episode.url}}" target="_blank" class="btn btn-primary" role="button">கதை</a> <a href="{{episode.image}}" target="_blank" class="btn btn-default" role="button">படம்</a></p>
     </div>
   </div>
 </div>

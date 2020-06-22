@@ -4,15 +4,15 @@ import { Episode } from '../episode';
 import { EpisodeService } from '../episode.service';
 
 @Component({
-  selector: 'app-episodes-by-tag',
+  selector: 'app-episodes-by-section',
   templateUrl: '../episodes/episodes.component.html',
   styleUrls: ['../episodes/episodes.component.scss']
 })
-export class EpisodesByTagComponent implements OnInit {
+export class EpisodesBySectionComponent implements OnInit {
 
-  message = '';
   episodes: Episode[];
-  tag = '';
+  novelno: number;
+  sectionno: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,13 +21,14 @@ export class EpisodesByTagComponent implements OnInit {
     ) {}
 
   getEpisodes(): void {
-    this.episodeService.getEpisodesByTag(this.tag)
+    this.episodeService.getEpisodesByNovelAndSection(this.novelno, this.sectionno)
     .subscribe(episodes => this.episodes = episodes);
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.tag = params.get('tag');
+      this.novelno = +params.get('novelno');
+      this.sectionno = +params.get('sectionno');
       this.getEpisodes();
     });
   }
