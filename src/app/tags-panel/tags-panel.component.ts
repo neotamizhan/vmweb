@@ -9,7 +9,7 @@ import { FilteredTagsPipe } from '../filtered-tags-pipe';
 })
 export class TagsPanelComponent implements OnInit {
 
-  tags: {};
+  tags = [];
   tagSearch = '';
 
   constructor(private episodeService: EpisodeService) { }
