@@ -15,6 +15,7 @@ export class NovelsBarComponent implements OnInit {
   
   ngOnInit() {
     this.novelsWithSections = this.episodeService.getNovelsWithSections();
+    console.log(this.novelsWithSections)
   }
 
 }

@@ -1,1 +1,65 @@
-<p>novels-bar works!</p>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/latest">வெண்முரசு <small> - ஜெயமோகன்</small></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" *ngFor="let novel of novelsWithSections">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{novel.novel.name}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">எல்லா அத்தியாயங்களும்</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" *ngFor="let section of novel.sections">{{section.sectionname}}</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">ஆகப்புதிய அத்தியாயம்</a>
+        </li>
+      </ul>    
+    </div>
+  </nav>
+  <!--
+<nav class="navbar navbar-default" role="navigation" >
+    <div class="container-fluid">       
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#/latest" class="navbar-brand">வெண்முரசு <small> - ஜெயமோகன்</small></a>
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" *ngFor="let novel of novelsWithSections">
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{novel.name}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">எல்லா அத்தியாயங்களும்</a></li>
+                        <li class="divider"></li>
+                        <li><a href="" ng-repeat="section in novel.sections">{{section}}</a></li>
+                    </ul>
+                </li>
+                <li><a href="latest">ஆகப்புதிய அத்தியாயம்</a></li>
+                
+                <li><a ng-click="clearEpisodes()">தேடுதல்களை அழி</a></li>
+               <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">வரிசை<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a ng-click="orderEpisodes('a')"><span class="glyphicon glyphicon-sort-by-attributes"></span>  அ -> ஃ</a></li>
+                      <li><a ng-click="orderEpisodes('d')"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>  ஃ -> அ</a></li>      
+                    </ul>
+                </li>                          
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+-->

@@ -27,6 +27,7 @@ export class EpisodesByTagComponent implements OnInit {
   ngOnInit() {
     this.tag = this.route.snapshot.paramMap.get('tag');
     this.getEpisodes();
+    console.log('e by t' + this.episodes);
   }
 
 }

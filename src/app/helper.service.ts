@@ -39,16 +39,23 @@ export class HelperService {
   getNovels(db: Episode[]) {
     const novels = [];
 
-    db.forEach(e=> novels.push({id: e.novelno, name: e.novelname}));
+    db.forEach(e=> {
+      const novel = {id: e.novelno, name: e.novelname};
+      if (!novels.find(n => n.name === novel.name)) { novels.push({id: e.novelno, name: e.novelname})}
+    });
+
     return novels;
   }
 
   getSections(db: Episode[], novel: {id: number, novelname: string}) {
     const sections = [];
 
-    db.filter(e=> e.novelno == novel.id)
-      .forEach(n=> sections.push({novelno: n.novelno, id: n.sectionno, name: n.sectionname}));
-
+    const novels = db.filter(n=> n.novelno == novel.id);
+    
+    novels.forEach(novel=> {
+      const section = {novelno: novel.novelno, id: novel.sectionno, sectionname: novel.sectionname};  
+      if (!sections.find(s=> s.sectionname === section.sectionname)) {sections.push(section);}      
+    });      
     return sections;
   }
 
@@ -107,4 +114,3 @@ export class HelperService {
 
 
   */
-}
