@@ -1,7 +1,7 @@
 <div class="col-md-3">
   <h3><span class="label label-primary">குறிச்சொற்கள்</span></h3>
   <p><i class="glyphicon glyphicon-search"></i> : <input type="text" placeholder="query" [(ngModel)]="tagSearch"></p>
-  <a [routerLink]="['/tag',tag[0]]" class="btn btn-xs btn-primary" *ngFor="let tag of tags">
+  <a [routerLink]="['/tag',tag[0]]" class="btn btn-xs btn-primary" *ngFor="let tag of tags | filteredTags: tagSearch">
       <i class="icon-tag icon-white"></i>
       <span>{{tag[0]}} {{tag[1]}}</span>
       </a>
