@@ -1,6 +1,8 @@
 <div class="episodes d-sm-flex flex-wrap" ng-show="episodes">
  <div class="col-sm-6 col-md-4 card" *ngFor="let episode of episodes">
-    <a href="#/novel/{{episode.novelno}}/chapter/{{episode.chapter}}"><img class="card-img-top" src="{{episode.image}}" alt="..."></a>
+    <div *ngIf="episode.image">
+      <a href="#/novel/{{episode.novelno}}/chapter/{{episode.chapter}}"><img class="card-img-top" src="{{episode.image}}" alt="..."></a>
+    </div>
     <div class="card-body">
       <p class="card-title">{{episode.novelname}} - {{episode.chapter}}</p>
       <p class="card-text">{{episode.sectionname}}</p>

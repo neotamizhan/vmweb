@@ -12,7 +12,7 @@
             {{novel.novel.name}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/novel/{{novel.id}}">எல்லா அத்தியாயங்களும்</a>
+            <a class="dropdown-item" routerLink="/novel/{{novel.novel.id}}">எல்லா அத்தியாயங்களும்</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" routerLink="/novel/{{section.novelno}}/section/{{section.id}}" *ngFor="let section of novel.sections">{{section.sectionname}}</a>
           </div>

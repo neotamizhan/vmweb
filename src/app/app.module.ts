@@ -11,6 +11,7 @@ import { NovelsBarComponent } from './novels-bar/novels-bar.component';
 import { FilteredTagsPipe } from './filtered-tags-pipe';
 import { EpisodesByTagComponent } from './episodes-by-tag/episodes-by-tag.component';
 import { EpisodesBySectionComponent } from './episodes-by-section/episodes-by-section.component';
+import { EpisodesByNovelComponent } from './episode-by-novel/episode-by-novel.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EpisodesBySectionComponent } from './episodes-by-section/episodes-by-se
     NovelsBarComponent,
     FilteredTagsPipe,
     EpisodesByTagComponent,
-    EpisodesBySectionComponent
+    EpisodesBySectionComponent,
+    EpisodesByNovelComponent
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,10 @@ export class EpisodeService {
     return of(this.helperService.getEpisodesByTag(this.db, tag));
   }
 
+  getEpisodesByNovel(novelno: number) {
+    return of(this.helperService.getEpisodesByNovel(this.db, novelno));
+  }
+
   getEpisodesByNovelAndSection(novelno: number, sectionno: number) {
     return of(this.helperService.getEpisodesByNovelAndSection(this.db, novelno, sectionno));
   }

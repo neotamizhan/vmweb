@@ -77,6 +77,9 @@ export class HelperService {
     return db.filter(n => n.novelno === novelno && n.sectionno === sectionno);
   }
 
+  getEpisodesByNovel(db: Episode[], novelno: number) {
+    return db.filter(n => n.novelno === novelno).sort((a, b) => a.chapter - b.chapter);
+  }
 }
 
 

@@ -5,14 +5,15 @@ import { LatestEpisodeComponent } from './latest-episode/latest-episode.componen
 import { EpisodesByTagComponent } from './episodes-by-tag/episodes-by-tag.component';
 import { AppComponent } from './app.component';
 import { EpisodesBySectionComponent } from './episodes-by-section/episodes-by-section.component';
+import { EpisodesByNovelComponent } from './episode-by-novel/episode-by-novel.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home',  pathMatch: 'full'},
-  { path: 'home', component: AppComponent },
+  { path: '', redirectTo: 'latest',  pathMatch: 'full'},
+  { path: 'latest', component: LatestEpisodeComponent },
+  { path: 'novel/:novelno', component: EpisodesByNovelComponent },
   { path: 'novel/:novelno/section/:sectionno', component: EpisodesBySectionComponent },
-  { path: 'tag/:tag', component: EpisodesByTagComponent },
-  { path: 'latest', component: LatestEpisodeComponent }
+  { path: 'tag/:tag', component: EpisodesByTagComponent }
 ];
 
 @NgModule({
