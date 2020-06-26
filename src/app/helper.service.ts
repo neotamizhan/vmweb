@@ -52,9 +52,9 @@ export class HelperService {
 
     const novels = db.filter(n=> n.novelno == novel.id);
 
-    novels.forEach(novel=> {
+    novels.forEach(novel => {
       const section = {novelno: novel.novelno, id: novel.sectionno, sectionname: novel.sectionname};
-      if (!sections.find(s=> s.sectionname === section.sectionname)) {sections.push(section);}
+      if (!sections.find(s => s.sectionname.replace(/\s/g, '') === section.sectionname.replace(/\s/g, ''))) { sections.push(section); }
     });
     return sections;
   }

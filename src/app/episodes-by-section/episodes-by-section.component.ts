@@ -10,6 +10,7 @@ import { EpisodeService } from '../episode.service';
 })
 export class EpisodesBySectionComponent implements OnInit {
 
+  message = '';
   episodes: Episode[];
   novelno: number;
   sectionno: number;
@@ -30,6 +31,7 @@ export class EpisodesBySectionComponent implements OnInit {
       this.novelno = +params.get('novelno');
       this.sectionno = +params.get('sectionno');
       this.getEpisodes();
+      this.message = 'நாவல் : ' + this.novelno + 'பகுதி : ';
     });
   }
 

@@ -1,12 +1,22 @@
+<div class="container">
+<div class="row justify-content-center">
+  <div class="col-md-4">{{message}}</div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4">அத்தியாயங்கள் : {{episodes.length}}</div>
+</div>
+
+</div>
 <div class="episodes d-sm-flex flex-wrap" ng-show="episodes">
  <div class="col-sm-6 col-md-4 card" *ngFor="let episode of episodes">
     <div *ngIf="episode.image">
-      <a href="#/novel/{{episode.novelno}}/chapter/{{episode.chapter}}"><img class="card-img-top" src="{{episode.image}}" alt="..."></a>
+      <img class="card-img-top" src="{{episode.image}}" alt="...">
     </div>
     <div class="card-body">
       <p class="card-title">{{episode.novelname}} - {{episode.chapter}}</p>
       <p class="card-text">{{episode.sectionname}}</p>
-      <p><a href="{{episode.url}}" target="_blank" class="btn btn-primary" role="button">கதை</a> <a href="{{episode.image}}" target="_blank" class="btn btn-default" role="button">படம்</a></p>
+      <p><a href="{{episode.url}}" target="_blank" class="btn btn-primary" role="button">கதை</a>
+        <a href="{{episode.image}}" target="_blank" class="btn btn-default" role="button" *ngIf="episode.image">படம்</a></p>
     </div>
   </div>
 </div>

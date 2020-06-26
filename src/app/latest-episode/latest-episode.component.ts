@@ -20,6 +20,7 @@ export class LatestEpisodeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.message = 'ஆகப்புதிய அத்தியாயம்';
     this.getEpisodes();
   }
 }

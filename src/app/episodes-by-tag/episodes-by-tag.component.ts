@@ -29,6 +29,7 @@ export class EpisodesByTagComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.tag = params.get('tag');
       this.getEpisodes();
+      this.message = 'குறிச்சொல் : ' + this.tag;
     });
   }
 

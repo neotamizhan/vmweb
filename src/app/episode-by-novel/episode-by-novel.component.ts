@@ -10,6 +10,7 @@ import { EpisodeService } from '../episode.service';
 })
 export class EpisodesByNovelComponent implements OnInit {
 
+  message = '';
   episodes: Episode[];
   novelno: number;
 
@@ -28,6 +29,7 @@ export class EpisodesByNovelComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.novelno = +params.get('novelno');
       this.getEpisodes();
+      this.message = 'நாவல் ' + this.novelno;
     });
   }
 
