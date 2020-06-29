@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "vmweb"
+  "defaultProject": "vmweb",
+  "cli": {
+    "analytics": "3cb39cfa-30fd-4a3a-a14c-1ff4b9cff999"
+  }
 }

@@ -1,5 +1,11 @@
-  <h3><span class="label label-primary">குறிச்சொற்கள்</span></h3>
-  <p><input type="text" [(ngModel)]="tagSearch"></p>
-  <button type="button" routerLink='/tag/{{tag[0]}}' class="btn btn-xs btn-primary" *ngFor="let tag of tags | filteredTags: tagSearch">
-    {{tag[0]}} <span class="badge badge-light">{{tag[1]}}</span>
-  </button>
+
+<h6>தேர்ந்தெடுக்கப்பட்ட குறிச்சொற்கள்</h6><span class="badge badge-info" (click)='clearSearchTags()' *ngIf="searchTags.length > 0">Clear All</span>
+<button type="button" class="btn btn-xs btn-primary" *ngFor="let tag of searchTags">
+  {{tag}}
+</button>
+
+<h5><span class="label label-primary">குறிச்சொற்கள்</span></h5>
+<p><input type="text" [(ngModel)]="tagSearch"></p>
+<button type="button" (click)="addToSearchTags(tag[0])"  class="btn btn-xs btn-primary" *ngFor="let tag of tags | filteredTags: tagSearch">
+  {{tag[0]}} <span class="badge badge-light">{{tag[1]}}</span>
+</button>

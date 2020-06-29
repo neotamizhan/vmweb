@@ -30,16 +30,31 @@ export class HelperService {
   }
 
   getEpisodesByTag(db: Episode[], tag: string): Episode[] {
-    console.log('in getEpisodesByTag looking for tag ' + tag);
-    return db.filter((v: Episode, i: number) => v.tags.includes(tag))
-              .sort((a, b) => b.novelno - a.novelno)
-              .sort((a, b) => b.chapter - a.chapter);
+    // console.log('in getEpisodesByTag looking for tag ' + tag);
+    // return db.filter((v: Episode, i: number) => v.tags.includes(tag))
+    //           .sort((a, b) => b.novelno - a.novelno)
+    //           .sort((a, b) => b.chapter - a.chapter);
+
+    return this.getEpisodesByMultipleTags(db, tag);
+  }
+
+  getEpisodesByMultipleTags(db: Episode[], tags: string): Episode[] {
+    console.log('in getEpisodesByTag looking for tags ' + tags);
+    const sTags = tags.split(',');
+
+    return (tags.trim().length > 0)
+              ?
+                  db.filter((v: Episode, i: number) => sTags.every(t => v.tags.includes(t)))
+                    .sort((a, b) => b.novelno - a.novelno)
+                    .sort((a, b) => b.chapter - a.chapter)
+              :
+                  [];
   }
 
   getNovels(db: Episode[]) {
     const novels = [];
 
-    db.forEach(e=> {
+    db.forEach(e => {
       const novel = {id: e.novelno, name: e.novelname};
       if (!novels.find(n => n.name === novel.name)) { novels.push({id: e.novelno, name: e.novelname})}
     });
@@ -50,10 +65,10 @@ export class HelperService {
   getSections(db: Episode[], novel: {id: number, novelname: string}) {
     const sections = [];
 
-    const novels = db.filter(n=> n.novelno == novel.id);
+    const novels = db.filter(n => n.novelno === novel.id);
 
-    novels.forEach(novel => {
-      const section = {novelno: novel.novelno, id: novel.sectionno, sectionname: novel.sectionname};
+    novels.forEach(n => {
+      const section = {novelno: n.novelno, id: n.sectionno, sectionname: n.sectionname};
       if (!sections.find(s => s.sectionname.replace(/\s/g, '') === section.sectionname.replace(/\s/g, ''))) { sections.push(section); }
     });
     return sections;
@@ -62,10 +77,10 @@ export class HelperService {
   getNovelsWithSections(db: Episode[]) {
       const novelsWithSections = [];
 
-      this.getNovels(db).forEach(n=> {
+      this.getNovels(db).forEach(n => {
           const novelWithSections = {novel : {id: 0, name: ''}, sections: []};
-          novelWithSections.novel = n
-          novelWithSections.sections = this.getSections(db,n);
+          novelWithSections.novel = n;
+          novelWithSections.sections = this.getSections(db, n);
           novelsWithSections.push (novelWithSections);
         }
       );
