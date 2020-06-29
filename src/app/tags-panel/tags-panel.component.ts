@@ -24,7 +24,16 @@ export class TagsPanelComponent implements OnInit {
   }
 
   addToSearchTags(tag: string): void {
-    this.searchTags.push(tag);
+    if (!this.searchTags.includes(tag)) {
+      this.searchTags.push(tag);
+    }
+    this.router.navigateByUrl('/tag/' + this.searchTags.join(','));
+  }
+
+  removeSearchTag(tag: string): void {
+    if (this.searchTags.includes(tag)) {
+      this.searchTags = this.searchTags.filter(t => t !== tag);
+    }
     this.router.navigateByUrl('/tag/' + this.searchTags.join(','));
   }
 
