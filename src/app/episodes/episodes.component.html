@@ -7,14 +7,16 @@
 </div>
 
 </div>
-<div class="episodes d-sm-flex flex-wrap" ng-show="episodes">
- <div class="col-sm-6 col-md-4 card" *ngFor="let episode of episodes">
+<div class="episodes card-columns" style="display: inline-block" ng-show="episodes">
+ <div class="card m-1 bg-light" *ngFor="let episode of episodes">
+  <div class="card-header">{{episode.novelname}} - {{episode.chapter}}</div>
     <div *ngIf="episode.image">
       <img class="card-img-top" src="{{episode.image}}" alt="...">
     </div>
     <div class="card-body">
-      <p class="card-title">{{episode.novelname}} - {{episode.chapter}}</p>
-      <p class="card-text">{{episode.sectionname}}</p>
+      <p class="card-title">நாவல் - {{episode.novelname}}</p>
+      <p class="card-text" *ngIf="episode.sectionname.length > 1"> பகுதி - {{episode.sectionname}}</p>
+      <p class="card-title">அத்தியாயம் - {{episode.chapter}}</p>
       <p><a href="{{episode.url}}" target="_blank" class="btn btn-primary" role="button">கதை</a>
         <a href="{{episode.image}}" target="_blank" class="btn btn-default" role="button" *ngIf="episode.image">படம்</a></p>
     </div>
