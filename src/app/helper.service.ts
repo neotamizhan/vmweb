@@ -95,6 +95,10 @@ export class HelperService {
   getEpisodesByNovel(db: Episode[], novelno: number) {
     return db.filter(n => n.novelno === novelno).sort((a, b) => a.chapter - b.chapter);
   }
+
+  getStats(db: Episode[]) {
+    {novels: this.getNovels(db).length}
+  }
 }
 
 
